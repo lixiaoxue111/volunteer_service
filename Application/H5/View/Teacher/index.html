@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <script src="/xiangyi/js/jquery-1.12.0.min.js"></script>
+    <link rel="stylesheet" href="/xiangyi/css/XiangYi.css">
+    <style>
+        body{
+            overflow-x: hidden;
+            background-color: #efefef;
+        }
+        .wrap{
+            width: 100vw;
+            padding-bottom: 8.5vh;
+        }
+        .sex-img{
+            float: left;
+            margin-left: 1vw;
+            width: 3.2vw;
+            height: 3.2vw;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+        @media screen and (min-device-height:1024px) and (max-device-height:1366px){
+            .sex-img{
+                margin-top: 0.7vh!important;
+            }
+        }
+        @media screen and (min-device-height:568px) and (max-device-height:568px){
+            .sex-img{
+                margin-top: -0.3vh!important;
+            }
+        }
+        @media screen and (min-width:315px) and (max-width:320px){
+            .teacher-sex1{
+                width: 20vw!important;
+            }
+        }
+        @media screen and (min-width:360px) and (max-width:412px){
+            .teacher-sex1{
+                width: 18vw!important;
+            }
+        }
+        @media screen and (min-width:412px) and (max-width:414px){
+            .teacher-sex1{
+                width: 17vw!important;
+            }
+        }
+        @media screen and (min-width:414px) and (max-width:768px){
+            .teacher-sex1{
+                width: 17vw!important;
+            }
+        }
+        @media screen and (min-width:768px) and (max-width:1024px){
+            .teacher-sex1{
+                width: 17vw!important;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="teacher-head">
+        <img src="/xiangyi/img/teacher-pic1_03.png" alt="">
+        <p>个人中心</p>
+    </div>
+    <div class="teacher-top">
+        <div class="teacher-bg">
+            <img src="{$data['headimgurl']}" alt="" class="teach-hi">
+        </div>
+        <p class="teacher-name">{$data['name']}</p>
+        <div class="teacher-sex1">
+            <if condition="$data['sex'] eq 1">
+                <div class="teacher-sex">性别：<span>男</span></div>
+                <div class="sex-img">
+                    <img src="/xiangyi/img/man_03.png" alt="" class="tc-pic">
+                </div>
+            <elseif condition="$data['sex'] eq 2" />
+                <div class="teacher-sex">性别：<span>女</span></div>
+                <div class="sex-img">
+                    <img src="/xiangyi/img/teach-sex_07.png" alt="" class="tc-pic">
+                </div>
+            <else />
+                <div class="teacher-sex">性别：<span>未知</span>
+                </div>
+            </if>
+        </div>
+    </div>
+    <ul class="teacher-cent" >
+        <li>
+            <div class="teacher-left">
+                <img src="/xiangyi/img/teacher-pics_05.jpg" alt="" class="tc_pic">
+                <p>学院</p>
+            </div>
+            <p class="teacher-right">{$data['a_name']}</p>
+        </li>
+        <li>
+            <div class="teacher-left">
+                <img src="/xiangyi/img/teacher-pics_08.jpg" alt="" class="tc_pic">
+                <p>电话</p>
+            </div>
+            <p class="teacher-right">{$data['mobile']}</p>
+        </li>
+        <li>
+            <div class="teacher-left">
+                <img src="/xiangyi/img/teacher-pics_10.jpg" alt="" class="tc_pic">
+                <p>工号</p>
+            </div>
+            <p class="teacher-right">{$data['job_number']}</p>
+        </li>
+        <li>
+            <div class="teacher-left">
+                <img src="/xiangyi/img/teacher-pics_12.png" alt="" class="tc_pic">
+                <p>互动时间余额</p>
+            </div>
+            <p class="teacher-right">{$data['m_a_time']}</p>
+        </li>
+    </ul>
+    <ul class="teacher-foot">
+        <li onclick="jumpPage(this)" data-href="/h5/teacher/release_wish">
+            <img src="/xiangyi/img/foot1-gray_06.jpg" alt="" class="foot-pic">
+            <p class="foot-p">发布心愿</p>
+        </li>
+        <li onclick="jumpPage(this)" data-href="/h5/teacher/wish_pool">
+
+            <img src="/xiangyi/img/box-gray_03.png" alt="" class="foot-pic">
+            <p class="foot-p">心愿池</p>
+        </li>
+        <li onclick="jumpPage(this)" data-href="/h5/teacher/wish_list">
+            <img src="/xiangyi/img/foot1-gray_03.png" alt="" class="foot-pic">
+            <p class="foot-p">心愿列表</p>
+        </li>
+        <li class="foot-style">
+            <img src="/xiangyi/img/teacher-pic1_03.png" alt="" class="foot-pic1">
+            <p class="foot-p">个人中心</p>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
+<script>
+    // 跳页
+    function jumpPage(e) {
+        var href=$(e).attr("data-href");
+        window.location.href=href
+    }
+    function goBack() {
+        window.history.go(-1)
+    }
+</script>
